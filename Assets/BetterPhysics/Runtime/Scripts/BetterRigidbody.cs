@@ -177,7 +177,7 @@ namespace SadnessMonday.BetterPhysics {
                 case Directionality.Omnidirectional:
                     Vector3 clampedVelocity = Vector3.ClampMagnitude(expectedNewVelocity, limit.ScalarLimit);
 
-                    if (currentVelocity == clampedVelocity && accumulatedNewtowns == 0) return;
+                    if (currentVelocity == clampedVelocity && accumulatedNewtons == 0) return;
                     // We're hard clamping so remove all accumulated force
                     _rb.AddForce(-accumulatedNewtons);
                     _rb.SetLinearVelocity(clampedVelocity);
@@ -195,7 +195,7 @@ namespace SadnessMonday.BetterPhysics {
                         }
                     }
 
-                    if (currentVelocity == clampedVelocity && accumulatedNewtowns == 0) return;
+                    if (currentVelocity == clampedVelocity && accumulatedNewtons == 0) return;
                     
                     // We're hard clamping so remove all accumulated force
                     _rb.AddForce(-accumulatedNewtons);
@@ -219,7 +219,7 @@ namespace SadnessMonday.BetterPhysics {
 
                     Vector3 clampedWorldVelocity = _rb.rotation * clampedLocalVelocity;
 
-                    if (currentVelocity == clampedWorldVelocity && accumulatedNewtowns == 0) return;
+                    if (currentVelocity == clampedWorldVelocity && accumulatedNewtons == 0) return;
 
                     // We're hard clamping so remove all accumulated force
                     _rb.AddForce(-accumulatedNewtons);

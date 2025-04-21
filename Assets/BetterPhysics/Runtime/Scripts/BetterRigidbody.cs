@@ -57,11 +57,11 @@ namespace SadnessMonday.BetterPhysics {
         public int LimitCount => limits.Count;
 
         private void FixedUpdate() {
-            if (!_rb.isKinematic) {
+            if (!_rb.isKinematic && _exemptedVelocityChange != Vector3.zero) {
                 // Apply exempted newtons directly to the velocity
                 _rb.AddLinearVelocity(_exemptedVelocityChange);
+                _exemptedVelocityChange = Vector3.zero;
             }
-            _exemptedVelocityChange = Vector3.zero;
             
             ApplyLimits();
         }

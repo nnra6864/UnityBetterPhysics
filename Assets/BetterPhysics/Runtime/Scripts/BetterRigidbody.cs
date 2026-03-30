@@ -493,7 +493,9 @@ namespace SadnessMonday.BetterPhysics {
         public Action<Quaternion> MoveRotation => _rb.MoveRotation;
         public Action ResetCenterOfMass => _rb.ResetCenterOfMass;
         public Action ResetInertiaTensor => _rb.ResetInertiaTensor;
+#if !UNITY_6000_0_OR_NEWER
         public Action<float> SetDensity => _rb.SetDensity;
+#endif
         public Action Sleep => _rb.Sleep;
 
         public bool SweepTest(Vector3 direction, out RaycastHit hitInfo, float maxDistance = Mathf.Infinity,

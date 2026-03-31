@@ -226,7 +226,7 @@ namespace SadnessMonday.BetterPhysics {
             }
         }
 
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
         internal EntityId GetRigidbodyEntityId() => _rb.GetEntityId();
 #else
         internal int GetRigidbodyInstanceID() => _rb.GetInstanceID();

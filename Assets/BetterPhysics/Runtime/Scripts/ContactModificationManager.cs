@@ -29,14 +29,14 @@ namespace SadnessMonday.BetterPhysics {
         /// </summary>
         public static ContactModificationManager WeakInstance => _instance;
 
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
         private Dictionary<EntityId, IDictionary<int, OneWayLayerInteraction>> _perRigidbodyData;
 #else
         private Dictionary<int, IDictionary<int, OneWayLayerInteraction>> _perRigidbodyData;
 #endif
 
         // Tracks which BetterRigidbody is in which layer
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
         private Dictionary<EntityId, int> _rigidbodyLayerMapping;
 #else
         private Dictionary<int, int> _rigidbodyLayerMapping;
@@ -62,7 +62,7 @@ namespace SadnessMonday.BetterPhysics {
             for (int i = 0; i < contactPairs.Length; i++) {
                 var pair = contactPairs[i];
                 
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
                 EntityId bodyAId = pair.bodyEntityId;
                 EntityId bodyBId = pair.otherBodyEntityId;
 #else
@@ -151,7 +151,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public void Register(BetterRigidbody body) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -163,7 +163,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public void UnRegister(BetterRigidbody body) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -173,7 +173,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public void ResetCustomInteractions(BetterRigidbody body) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -184,7 +184,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public void SetCustomInteraction(BetterRigidbody body, OneWayLayerInteraction interaction) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -195,7 +195,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public bool RemoveCustomInteraction(BetterRigidbody body, int receiverLayer) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -208,7 +208,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public bool TryGetCustomInteraction(BetterRigidbody body, int receiverLayer, out OneWayLayerInteraction interaction) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
@@ -222,7 +222,7 @@ namespace SadnessMonday.BetterPhysics {
         }
 
         public void UpdateBodyLayer(BetterRigidbody body) {
-#if UNITY_6000_5_OR_NEWER
+#if UNITY_6000_4_OR_NEWER
             var rbInstanceId = body.GetEntityId();
 #else
             var rbInstanceId = body.GetRigidbodyInstanceID();
